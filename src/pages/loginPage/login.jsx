@@ -22,7 +22,7 @@ function Login () {
                     placeholder="Insert your email here"
                     type="email"
                     name="email"
-                    required= "true"
+                    required= {true}
                     />
                 <label 
                     htmlFor= "password"
@@ -34,7 +34,7 @@ function Login () {
                     placeholder="Insert your password here"
                     type="password"
                     name="password"
-                    required= "true"
+                    required= {true}
                     pattern="/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$/"                    
                     />
                 <button type="submit">Log In</button>
