@@ -1,16 +1,15 @@
 import { useForm } from "react-hook-form";
 
+
 function RegisterMedicine () {
 
     const { register, handleSubmit } = useForm();
-
-    const onSubmit = (e) => {
-        let medicines = [];
+    
+    const onSubmit = (e) => {     
         let medicinesList = localStorage.getItem('newMedicine')
         let usedLocalStorage = medicinesList ? JSON.parse(medicinesList) : [];
-        const updatedValue = localStorage.setItem('newMedicine', JSON.stringify(e));
-        medicines.push(updatedValue)
-        localStorage.setItem('newMedicine', JSON.stringify(e))
+        usedLocalStorage.push(e)
+        localStorage.setItem('newMedicine', JSON.stringify(usedLocalStorage));
 
     }
 
@@ -18,11 +17,11 @@ function RegisterMedicine () {
         <>
             <h2>➕ New Medicine</h2>
             <form onSubmit={handleSubmit(onSubmit)} >
-                <label htmlFor="medicine">Medicine Name</label>
+                <label htmlFor="medicineName">Medicine Name</label>
                 <input
                     type="text"
-                    name="medicine"
-                    {...register("medicine", {
+                    name="medicineName"
+                    {...register("medicineName", {
                         required: "Please fill out this field"})}
                         
                     />
