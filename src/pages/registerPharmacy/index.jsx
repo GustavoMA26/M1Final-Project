@@ -2,7 +2,16 @@ import { useForm } from "react-hook-form";
 
 function RegisterPharmacy () {
 
-    const { register, setValue, setFocus } = useForm();
+    const { register, setValue, setFocus, handleSubmit } = useForm();
+
+    const onSubmit = (e) => {
+        let pharmaciesList = localStorage.getItem('newPharmacy')
+        let usedLocalStorage = pharmaciesList ? JSON.parse(pharmaciesList) : [];
+        usedLocalStorage.push(e)
+        localStorage.setItem('newPharmacy', JSON.stringify(usedLocalStorage));
+        alert(`Pharmacy ${company.value} registered with success`)
+        }
+        
 
     const checkZipcode = (e) => {
         const zipcode = e.target.value.replace(/\D/g, '');
@@ -19,7 +28,7 @@ function RegisterPharmacy () {
     return (
         <>
             <h2>➕ New Pharmacy</h2>
-            <form>
+            <form onSubmit={handleSubmit(onSubmit)}>
                 <label htmlFor="company">Company Name</label>
                 <input
                     id="company"
