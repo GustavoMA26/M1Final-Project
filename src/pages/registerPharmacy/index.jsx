@@ -140,7 +140,7 @@ function RegisterPharmacy () {
                     <label htmlFor="latitude">Latitude</label>
                     <input
                         id="latitude"
-                        type="number"
+                        type="text"
                         name="latitude"
                         {...register("latitude", {
                             required: "Please fill out this field"})}
@@ -148,7 +148,7 @@ function RegisterPharmacy () {
                     <label htmlFor="longitude">Longitude</label>
                     <input
                         id="longitude"
-                        type="number"
+                        type="text"
                         name="longitude"
                         {...register("longitude", {
                             required: "Please fill out this field"})}
