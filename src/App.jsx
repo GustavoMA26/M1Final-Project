@@ -1,12 +1,13 @@
 import './App.css'
 import { Main } from "./components/main/index"
-import { RegisterMedicine } from './pages/registerMedicine'
+import { Login } from './pages/loginPage/login'
+import { RegisterPharmacy } from './pages/registerPharmacy'
 
 function App() {
 
   return (
     <>
-    <RegisterMedicine />
+    <RegisterPharmacy />
     </>
 
   )
