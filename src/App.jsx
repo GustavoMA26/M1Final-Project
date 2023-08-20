@@ -1,15 +1,13 @@
 import './App.css'
-import { Main } from "./components/main/index"
-import { Login } from './pages/loginPage/login'
-import { RegisterPharmacy } from './pages/registerPharmacy'
+import { BrowserRouter } from 'react-router-dom'
+import { RoutesApp } from "./routes/index"
 
 function App() {
 
   return (
-    <>
-    <RegisterPharmacy />
-    </>
-
+    <BrowserRouter>
+      <RoutesApp />
+    </BrowserRouter>
   )
 }
 
