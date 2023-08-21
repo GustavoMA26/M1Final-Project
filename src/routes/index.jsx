@@ -8,7 +8,7 @@ function RoutesApp () {
         <Routes>
             <Route element={<RegisterPharmacy/>} path="/register-pharmacy" />
             <Route element={<RegisterMedicine/>} path="/register-medicine" />
-            <Route element={<Map />} path="/find-pharmacy"></Route>
+            <Route element={<Map />} path="/find-pharmacy" />
         </Routes>
     )
 }

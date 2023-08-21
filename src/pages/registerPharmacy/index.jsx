@@ -3,6 +3,7 @@ import Button from '@mui/material/Button';
 import { useForm } from "react-hook-form";
 import Container from '@mui/material/Container';
 import Box from '@mui/material/Box';
+import { Header } from "../../components/header";
 
 function RegisterPharmacy () {
 
@@ -31,9 +32,9 @@ function RegisterPharmacy () {
         })
     }
     return (
-        <>
-                <Container maxWidth="md">
-                    <form onSubmit={handleSubmit(onSubmit)}>
+        <Header>
+            <Container maxWidth="md">
+                <form onSubmit={handleSubmit(onSubmit)}>
                     <Box
                         display="flex" 
                         flexDirection={"row"}
@@ -222,7 +223,7 @@ function RegisterPharmacy () {
                     </Box>    
                 </form>
             </Container>      
-        </>
+        </Header>
     )
 }
 
