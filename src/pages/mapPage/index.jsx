@@ -2,7 +2,11 @@ import "./style.css"
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import "leaflet/dist/leaflet.css";
 import { useEffect, useState } from "react";
-import { Icon } from 'leaflet'
+import { Icon } from 'leaflet';
+import { Header } from "../../components/header";
+import { Main } from "../../components/main";
+import { Footer } from "../../components/footer";
+
 
 function Map () {
 
@@ -29,19 +33,23 @@ function Map () {
 
     return (
         <>
-        <MapContainer center={[-27.593500, -48.558540]} zoom={13}>
-            <TileLayer
-            attribution = '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-            url = 'https://tile.openstreetmap.org/{z}/{x}/{y}.png'
-            />
+        <Header />
+            <Main>
+                <MapContainer center={[-27.593500, -48.558540]} zoom={13}>
+                    <TileLayer
+                    attribution = '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+                    url = 'https://tile.openstreetmap.org/{z}/{x}/{y}.png'
+                    />
 
-            {markers.map(marker => {
-                <Marker position= {[marker.latitude, marker.latitude]}>
-                    <Popup>{marker.CNPJ}</Popup>
-                </Marker>
-            })}
-        </MapContainer>
-        </>
+                    {markers.map(marker => {
+                        <Marker position= {[marker.latitude, marker.latitude]}>
+                            <Popup>{marker.CNPJ}</Popup>
+                        </Marker>
+                    })}
+                </MapContainer>
+            </Main>
+        <Footer />
+    </>
 
     )
 }

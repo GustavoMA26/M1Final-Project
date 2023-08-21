@@ -46,11 +46,9 @@ function Header () {
                                 indicatorColor="secondary">
 
                      {
-                        pages.map(({route, description}) => {
+                        pages.map(({route, description, index}) => {
                             return (
-                                <Tab key={description}>
-                                    <Link to={route}>{description}</Link>
-                                </Tab>
+                                    <li key={index}><Link to={route}>{description}</Link></li>
                             )
                         })
                     } 
