@@ -128,8 +128,9 @@ function RegisterPharmacy () {
                                 variant="filled"
                                 name="zipcode"
                                 onBlur={checkZipcode}
-                                {...register("zipcode", {
-                                    required: "Please fill out this field"})}
+                                InputLabelProps={{
+                                    shrink: true,
+                                  }}
                             />
                             <TextField
                                 label ="Street"
@@ -141,6 +142,9 @@ function RegisterPharmacy () {
                                 name="street"
                                 {...register("street", {
                                     required: "Please fill out this field"})}
+                                InputLabelProps={{
+                                        shrink: true,
+                                      }}
                             />
                             <TextField
                                 label ="Number"
@@ -152,6 +156,9 @@ function RegisterPharmacy () {
                                 name="addressNumber"
                                 {...register("addressNumber", {
                                     required: "Please fill out this field"})}
+                                InputLabelProps={{
+                                    shrink: true,
+                                    }}
                             />
                             <TextField
                                 label ="Neighborhood"
@@ -163,6 +170,9 @@ function RegisterPharmacy () {
                                 name="neighborhood"
                                 {...register("neighborhood", {
                                     required: "Please fill out this field"})}
+                                InputLabelProps={{
+                                    shrink: true,
+                                    }}
                             />
                             <TextField
                                 label ="City"
@@ -174,6 +184,9 @@ function RegisterPharmacy () {
                                 name="city"
                                 {...register("city", {
                                     required: "Please fill out this field"})}
+                                InputLabelProps={{
+                                    shrink: true,
+                                    }}
                             />
                             <TextField
                                 label ="State"
@@ -185,6 +198,9 @@ function RegisterPharmacy () {
                                 name="state"
                                 {...register("state", {
                                     required: "Please fill out this field"})}
+                                InputLabelProps={{
+                                    shrink: true,
+                                    }}
                             />
                             <TextField
                                 label ="Complement"
@@ -196,6 +212,9 @@ function RegisterPharmacy () {
                                 name="complement"
                                 {...register("complement", {
                                     required: false})}
+                                InputLabelProps={{
+                                    shrink: true,
+                                    }}
                             />
                             <TextField
                                 label ="Latitude"
@@ -206,7 +225,7 @@ function RegisterPharmacy () {
                                 variant="filled"
                                 name="latitude"
                                 {...register("latitude", {
-                                    required: "Please fill out this field"})}
+                                    required: "Please fill out this field"})}                              
                             />
                             <TextField
                                 label ="Longitude"
