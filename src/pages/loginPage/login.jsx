@@ -4,11 +4,13 @@ import LoginIcon from '@mui/icons-material/Login';
 import HowToRegIcon from '@mui/icons-material/HowToReg';
 import { Box } from "@mui/system";
 import { TextField, Typography } from "@mui/material";
+import MedicationIcon from '@mui/icons-material/Medication';
 
 function Login () {
     const [isSignup, setIsSignup] = useState(false);
     const [inputs, setInputs] = useState({
-        name: "", 
+        name: "",
+        company: "", 
         email:"", 
         password: ""
     });
@@ -27,20 +29,22 @@ function Login () {
 
     const resetState = () => {
         setIsSignup(!isSignup);
-        setInputs({name: "", email: "", password: ""})
+        setInputs({name: "", company:"", email: "", password: ""})
     };
 
     return (
         <>
             <form onSubmit={handleSubmit}>
-                <Box 
+                <Box
+                    backgroundColor="#f7f7f7"
                     display="flex" 
                     flexDirection={"column"} 
                     maxWidth={400} 
                     alignItems="center" 
                     justifyContent="center"
                     margin="auto"
-                    marginTop={25}
+                    marginTop={10}
+                    marginBottom={10}
                     padding={3}
                     borderRadius={5}
                     boxShadow={'5px 5px 10px #ccc'}
@@ -49,11 +53,12 @@ function Login () {
                         boxShadow:'10px 10px 20px #ccc'
                     }}}
                 >
+                    <MedicationIcon style={{ color: '#2b5ba8' }} fontSize="large"/>
                     <Typography
                     variant="h6"
                     padding={3}
                     textAlign="center">
-                        {isSignup? "Sign Up" : "Login"}
+                        {isSignup? "SIGN UP" : "LOGIN"}
                     </Typography>
                     {isSignup && <TextField 
                         name="name"
@@ -64,8 +69,20 @@ function Login () {
                         variant="outlined"
                         placeholder="Insert your name"
                         required= {true}
+                        /> 
+                        }
+                    {isSignup && <TextField 
+                        name="company"
+                        value={inputs.company || ""}
+                        onChange={handleChange}
+                        margin="normal"
+                        type={"name"}
+                        variant="outlined"
+                        placeholder="Insert your company"
+                        required= {true}
                         />
-                    }
+                        }
+
                     <TextField
                         name="email"
                         value={inputs.email}
@@ -96,6 +113,7 @@ function Login () {
                     </Button>
                     <Button
                         onClick={resetState}
+                        style={{ color: '#2b5ba8' }}
                         sx={{marginTop:3, borderRadius:3}}>
                             {isSignup ? "Change to Login" : "Don't have an account? Sign up"}
                     </Button>
