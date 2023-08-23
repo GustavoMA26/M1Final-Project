@@ -5,7 +5,6 @@ import { useEffect, useState } from "react";
 import { Icon } from 'leaflet';
 import { Header } from "../../components/header";
 import { Main } from "../../components/main";
-import { Footer } from "../../components/footer";
 
 
 function Map () {
@@ -48,7 +47,6 @@ function Map () {
                     })}
                 </MapContainer>
             </Main>
-        <Footer />
     </>
 
     )

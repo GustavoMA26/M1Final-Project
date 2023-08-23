@@ -1,7 +1,7 @@
 import { Header } from "../../components/header";
 import { Main } from "../../components/main";
 import { useForm } from "react-hook-form";
-import { Footer } from "../../components/footer";
+
 
 
 function RegisterMedicine () {
@@ -69,7 +69,6 @@ function RegisterMedicine () {
                         <button type="submit">Register</button>
                     </form>
                 </Main>
-            <Footer />
         </>
     )
 }

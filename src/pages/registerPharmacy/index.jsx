@@ -5,7 +5,7 @@ import Container from '@mui/material/Container';
 import Box from '@mui/material/Box';
 import { Header } from "../../components/header";
 import { Main } from "../../components/main";
-import { Footer } from "../../components/footer";
+
 
 function RegisterPharmacy () {
 
@@ -247,8 +247,7 @@ function RegisterPharmacy () {
                     </form>
                 </Container>
             </Main>
-        <Footer />
-    </>     
+        </>     
     )
 }
 
