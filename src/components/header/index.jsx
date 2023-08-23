@@ -3,14 +3,15 @@ import { AppBar, Toolbar, Typography, Tabs, Tab, useMediaQuery, useTheme} from "
 import Button from '@mui/material/Button';
 import MedicationIcon from '@mui/icons-material/Medication';
 import { DrawerComp } from "../drawer";
-import { Link } from "react-router-dom";
-import { MenuItem } from "@mui/base";
+import { useNavigate } from "react-router-dom";
+
 
 
 function Header () {
     const [value, setValue] = useState();
     const theme = useTheme();
     const isMatch = useMediaQuery(theme.breakpoints.down('md'));
+    const navigate = useNavigate();
 
     const pages = [
         {
@@ -37,47 +38,30 @@ function Header () {
                                     <Typography>DevIn</Typography>
                                     <DrawerComp />
                                 </>
-                            ) : ( 
-                                <>
+                            ) : 
+                            ( 
+                            <>
+                                <Typography>DevIn</Typography>
                                 <Tabs
-                                textColor="inherit"
-                                value={value}
-                                onChange={(e, value)=> setValue(value)} 
-                                indicatorColor="secondary">
-
-                     {
-                        pages.map(({route, description, index}) => {
-                            return (
-                                    <li key={index}><Link to={route}>{description}</Link></li>
+                                    sx={{marginLeft:"auto"}}
+                                    textColor="inherit"
+                                    value={false}
+                                    onChange={(e, value)=> setValue(value)}>
+                                    {
+                                        pages.map(({route, description}, index) => {
+                                            return (
+                                                <Tab key={index} value={false} label={description} onClick={() => navigate(route)}/>
+                                            )
+                                        })
+                                    } 
+                                </Tabs>
+                                <Button sx={{ marginLeft: "auto"}} variant="contained" color="error">Logout</Button>
+                            </>
                             )
-                        })
-                    } 
-                    </Tabs>
-                                {/* <Tab label = "Register Pharmacy" />
-                                <Tab label = "Register Medicine" />
-                                <Tab label = "Find Pharmacy" /> */}
-                                
-                                <Button>Hello</Button>
-                                </>
-                                )
-                        }
-
-                     {/* {
-                        pages.map(({route, description}) => {
-                            return (
-                                <MenuItem key={description}>
-                                <Link className="nav-link" to={route}>{description}</Link>
-                                </MenuItem>
-                            )
-                        })
-                    }  */}
-                    
+                        } 
                 </Toolbar>
-                
             </AppBar>
         </div>
-
-
     )
 }
 

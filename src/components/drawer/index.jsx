@@ -1,6 +1,7 @@
 import { useState } from "react"
-import { Drawer, IconButton, List, ListItemButton, ListItemText } from "@mui/material"
+import { Drawer, IconButton, List, ListItemButton, ListItemText, ListItemIcon } from "@mui/material"
 import MenuIcon from '@mui/icons-material/Menu';
+import { useNavigate } from "react-router-dom";
 
 const pages = [
     {
@@ -19,13 +20,24 @@ const pages = [
 
 function DrawerComp() {
     const [openDrawer, setOpenDrawer] = useState(false);
+    const navigate = useNavigate();
+
     return (
         <>
             <Drawer open={openDrawer} onClose={()=>setOpenDrawer(false)}>
                 <List>
-                    <ListItemButton>
-                        <ListItemText>Login</ListItemText>
-                    </ListItemButton>
+                    {
+                        pages.map(({route, description}, index) => {
+                            return (
+                            <ListItemButton key={index} onClick={() => setOpenDrawer(!true)}>
+                                <ListItemIcon >
+                                    <ListItemText onClick={() => navigate(route)} primary={description}/>
+                                </ListItemIcon>
+                            </ListItemButton>
+                            )
+                        })
+                    }
+
                 </List>
             </Drawer>
             <IconButton sx={{color: 'white', marginLeft: 'auto'}}  onClick={() => setOpenDrawer(!openDrawer)}>
