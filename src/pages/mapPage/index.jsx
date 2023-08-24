@@ -40,10 +40,16 @@ function Map () {
                     url = 'https://tile.openstreetmap.org/{z}/{x}/{y}.png'
                     />
 
-                    {markers.map(marker => {
-                        <Marker position= {[marker.latitude, marker.latitude]}>
-                            <Popup>{marker.CNPJ}</Popup>
+                    {markers.map((marker, index) => {
+                        return(
+                        <Marker key={index} position= {[parseFloat(marker.latitude), Number(marker.longitude)]}>
+                            <Popup>
+                                <h3>{marker.company}</h3>
+                                <p>{marker.cnpj}</p>
+                            </Popup>
+                            <Popup></Popup>
                         </Marker>
+                        )
                     })}
                 </MapContainer>
             </Main>
