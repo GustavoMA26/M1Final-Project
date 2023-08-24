@@ -1,10 +1,12 @@
 import "./style.css"
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
+import MarkerClusterGroup from "react-leaflet-cluster";
 import "leaflet/dist/leaflet.css";
 import { useEffect, useState } from "react";
 import { Icon } from 'leaflet';
 import { Header } from "../../components/header";
 import { Main } from "../../components/main";
+import { Height } from "@mui/icons-material";
 
 
 function Map () {
@@ -20,7 +22,7 @@ function Map () {
     console.log(markers)
 
     // const customIcon = new Icon({
-    //     iconUrl: ("./img/plaholder.png"),
+    //     iconUrl: require("./image/pin.png"),
     //     iconSize: [38,38]
     // })
  
@@ -39,18 +41,18 @@ function Map () {
                     attribution = '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                     url = 'https://tile.openstreetmap.org/{z}/{x}/{y}.png'
                     />
-
-                    {markers.map((marker, index) => {
-                        return(
-                        <Marker key={index} position= {[parseFloat(marker.latitude), Number(marker.longitude)]}>
-                            <Popup>
-                                <h3>{marker.company}</h3>
-                                <p>{marker.cnpj}</p>
-                            </Popup>
-                            <Popup></Popup>
-                        </Marker>
-                        )
-                    })}
+                    <MarkerClusterGroup>
+                        {markers.map((marker, index) => {
+                            return(
+                            <Marker key={index} position= {[parseFloat(marker.latitude), parseFloat(marker.longitude)]}>
+                                <Popup>
+                                    <h3>{marker.company}</h3>
+                                    <p>{marker.cnpj}</p>
+                                </Popup>
+                            </Marker>
+                            )
+                        })}
+                    </MarkerClusterGroup>
                 </MapContainer>
             </Main>
     </>
