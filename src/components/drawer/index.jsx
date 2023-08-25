@@ -13,6 +13,10 @@ const pages = [
         description: "Register Medicine"
     },
     {
+        route: "/registered-medicines",
+        description: "Registered Medicines"
+    },
+    {
         route: "/find-pharmacy",
         description: "Find Pharmacy"
     }
