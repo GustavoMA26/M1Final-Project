@@ -46,8 +46,11 @@ function Map () {
                             return(
                             <Marker key={index} position= {[parseFloat(marker.latitude), parseFloat(marker.longitude)]}>
                                 <Popup>
-                                    <h3>{marker.company}</h3>
+                                    <h3>{marker.tradingName}</h3>
                                     <p>{marker.cnpj}</p>
+                                    <p>{marker.city}, {marker.state}</p>
+                                    <p>{marker.mobile}</p>
+                                    <a href="https://wa.me/5548996210237">Contact us!</a>
                                 </Popup>
                             </Marker>
                             )
