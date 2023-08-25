@@ -7,6 +7,7 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
+import Box from '@mui/material/Box';
 
 function RegisteredMedicines() {
 
@@ -27,7 +28,7 @@ function RegisteredMedicines() {
             <Main>
                 {
                 medicineList.map((medicine, index) => {
-                    return (
+                    return (                       
                         <Card sx={{ maxWidth: 300 }}>
                             <CardMedia
                                 component="img"
@@ -47,15 +48,8 @@ function RegisteredMedicines() {
                                     <Button size="large">Learn More</Button>
                             </CardActions>
                         </Card>
-                    )
+                    )})
                 }
-                
-                
-                )
-
-
-                }
-                
             </Main>
         </>
 
