@@ -1,8 +1,7 @@
-import * as React from 'react';
-import Box from '@mui/material/Box';
-import Button from '@mui/material/Button';
-import Typography from '@mui/material/Typography';
+import { useState } from 'react';
+import { Box, Button } from '@mui/material';
 import Modal from '@mui/material/Modal';
+import AddCircleOutlinedIcon from '@mui/icons-material/AddCircleOutlined';
 
 const style = {
   position: 'absolute',
@@ -16,14 +15,15 @@ const style = {
   p: 4,
 };
 
-function BasicModal() {
-  const [open, setOpen] = React.useState(false);
+function BasicModal({children}) {
+  const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
   return (
     <div>
-      <Button onClick={handleOpen}>Open modal</Button>
+        <Button startIcon={<AddCircleOutlinedIcon />} onClick={handleOpen} size="large">DETAILS</Button>
+
       <Modal
         open={open}
         onClose={handleClose}
@@ -31,12 +31,7 @@ function BasicModal() {
         aria-describedby="modal-modal-description"
       >
         <Box sx={style}>
-          <Typography id="modal-modal-title" variant="h6" component="h2">
-            Text in a modal
-          </Typography>
-          <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-            Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
-          </Typography>
+            {children}
         </Box>
       </Modal>
     </div>

@@ -1,16 +1,9 @@
 import { Header } from "../../components/header";
 import { Main } from "../../components/main";
 import { useEffect, useState } from "react";
-import Card from '@mui/material/Card';
-import CardActions from '@mui/material/CardActions';
-import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
+import {Card, CardContent, CardMedia, Typography, Container, Box, Grid } from '@mui/material';
 import Button from '@mui/material/Button';
-import Typography from '@mui/material/Typography';
-import Box from '@mui/material/Box';
-import Container from '@mui/material/Container';
-import Grid from '@mui/material/Grid';
-import AddCircleOutlinedIcon from '@mui/icons-material/AddCircleOutlined';
+import { BasicModal } from "../../components/modal";
 
 
 function RegisteredMedicines() {
@@ -23,8 +16,6 @@ function RegisteredMedicines() {
             setMedicinesList(medicineList)
         }
     }, []);
-    console.log(medicineList)
-
 
     return (
         <>
@@ -56,26 +47,26 @@ function RegisteredMedicines() {
                                                 // sx={{width:"200"}}
                                                 image="https://st2.depositphotos.com/15928480/43854/i/450/depositphotos_438546340-stock-photo-multicolor-tablets-and-pills-capsules.jpg"
                                             />
-                                            <CardContent>
-                                                <Typography gutterBottom variant="h6" component="div">
+                                                <CardContent>
                                                 {medicine.medicineName}
-                                                </Typography>
-                                                <Typography gutterBottom variant="h7" component="div">
-                                                {medicine.lab}
-                                                </Typography>
-                                                <Typography variant="body1" color="text.secondary">
-                                                {medicine.description}
-                                                </Typography>
-                                                <Typography mt={2} variant="body2" color="text.secondary">
-                                                Dosage: {medicine.dosage}
-                                                </Typography>
-                                                <Typography mt={3} variant="body2" color="text.secondary">R$ 
-                                                {medicine.price}
-                                                </Typography>
-                                            </CardContent>
-                                            <CardActions>
-                                                    <Button startIcon={<AddCircleOutlinedIcon />} size="large">Learn More</Button>
-                                            </CardActions>
+                                                    <BasicModal>
+                                                    <Typography variant="h6" color="text.primary">
+                                                        NAME: {medicine.lab}
+                                                        </Typography>  
+                                                        <Typography mt={2} variant="h6" color="text.primary">
+                                                        LAB: {medicine.lab}
+                                                        </Typography>                       
+                                                        <Typography mt={2} variant="body1" color="text.secondary">
+                                                        DESCRIPTION: {medicine.description}
+                                                        </Typography>
+                                                        <Typography mt={2} variant="body2" color="text.secondary">
+                                                        DOSAGE: {medicine.dosage}
+                                                        </Typography>
+                                                        <Typography mt={2} variant="h6" color="text.primary"> 
+                                                        R${medicine.price}
+                                                        </Typography>                                                        
+                                                    </BasicModal>
+                                                </CardContent>                                            
                                         </Card>
                                     </Grid>  
                                     )
