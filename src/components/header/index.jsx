@@ -4,10 +4,12 @@ import Button from '@mui/material/Button';
 import MedicationIcon from '@mui/icons-material/Medication';
 import { DrawerComp } from "../drawer";
 import { useNavigate } from "react-router-dom";
+import { useApp } from "../../hooks/useApp";
 
 
 
 function Header () {
+    const {logout} = useApp();
     const [value, setValue] = useState();
     const theme = useTheme();
     const isMatch = useMediaQuery(theme.breakpoints.down('md'));
@@ -27,7 +29,7 @@ function Header () {
             description: "Registered Medicines"
         },
         {
-            route: "/find-pharmacy",
+            route: "/",
             description: "Find Pharmacy"
         }
     ]
@@ -59,7 +61,7 @@ function Header () {
                                         })
                                     } 
                                 </Tabs>
-                                <Button sx={{ marginLeft: "auto"}} variant="contained" color="error">Logout</Button>
+                                <Button sx={{ marginLeft: "auto"}} variant="contained" color="error" onClick={logout}>Logout</Button>
                             </>
                             )
                         } 

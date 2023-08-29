@@ -10,7 +10,7 @@ function PrivateRoutes() {
             <Route element={<RegisterPharmacy/>} path="/register-pharmacy" />
             <Route element={<RegisterMedicine/>} path="/register-medicine" />
             <Route element={<RegisteredMedicines />} path="/registered-medicines" />
-            <Route element={<Map />} path="/find-pharmacy" />
+            <Route element={<Map />} path="/" />
         </Routes>
     )
 }

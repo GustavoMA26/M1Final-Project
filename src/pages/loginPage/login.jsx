@@ -1,12 +1,18 @@
 import { useState } from "react"
-import Button from '@mui/material/Button';
 import LoginIcon from '@mui/icons-material/Login';
 import HowToRegIcon from '@mui/icons-material/HowToReg';
-import { Box } from "@mui/system";
-import { TextField, Typography } from "@mui/material";
+import { TextField, Typography, Button, Box } from "@mui/material";
 import MedicationIcon from '@mui/icons-material/Medication';
+import { Navigate, useNavigate } from "react-router";
+import { useApp } from "../../hooks/useApp";
+import { useForm } from "react-hook-form";
 
 function Login () {
+
+    const { register, handleSubmit } = useForm();
+    const navigate = useNavigate();
+    const { setValue } = useApp();
+    // const [ users, setUsers ] = useState([]);
     const [isSignup, setIsSignup] = useState(false);
     const [inputs, setInputs] = useState({
         name: "",
@@ -15,16 +21,22 @@ function Login () {
         password: ""
     });
 
-    const handleChange = (e) => {
-        setInputs((prevState) => ({
-            ...prevState,
-            [e.target.name] : e.target.value
-        }));
-    };
+    // const handleChange = (e) => {
+    //     setInputs((prevState) => ({
+    //         ...prevState,
+    //         [e.target.name] : e.target.value
+    //     }));
+    // };
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        console.log(inputs);
+    // const onSubmit = (dataFromForm) => {
+    //     setValue(dataFromForm)
+    // }
+    const onSubmit = (e) => {
+        // e.preventDefault();
+        // console.log(inputs);
+        // setUsers(inputs)
+        setValue(e);
+        navigate("/")
     };
 
     const resetState = () => {
@@ -34,7 +46,7 @@ function Login () {
 
     return (
         <>
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit(onSubmit)}>
                 <Box
                     backgroundColor="#f7f7f7"
                     display="flex" 
@@ -62,47 +74,51 @@ function Login () {
                     </Typography>
                     {isSignup && <TextField 
                         name="name"
-                        value={inputs.name}
-                        onChange={handleChange}
+                        // value={inputs.name}
+                        // onChange={handleChange}
                         margin="normal"
                         type={"name"}
                         variant="outlined"
                         placeholder="Insert your name"
                         required= {true}
+                        {...register("name")}
                         /> 
                         }
                     {isSignup && <TextField 
                         name="company"
-                        value={inputs.company || ""}
-                        onChange={handleChange}
+                        // value={inputs.company || ""}
+                        // onChange={handleChange}
                         margin="normal"
                         type={"name"}
                         variant="outlined"
                         placeholder="Insert your company"
                         required= {true}
+                        {...register("company")}
                         />
                         }
 
                     <TextField
                         name="email"
-                        value={inputs.email}
-                        onChange={handleChange}
+                        // value={inputs.email}
+                        // onChange={handleChange}
                         margin="normal"
                         type={"email"}
                         variant="outlined"
                         placeholder="Insert your email"
                         required= {true}
+                        {...register("email")}
                         />
                     <TextField
                         name="password"
-                        value={inputs.password}
-                        onChange={handleChange}
+                        // value={inputs.password}
+                        // onChange={handleChange}
                         margin="normal"
                         type={"password"}
                         variant="outlined"
                         placeholder="Insert your password"
                         required= {true}
                         pattern="/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$/"
+                        {...register("password")}
                         />
                     <Button 
                         endIcon= { isSignup ? <HowToRegIcon/> : <LoginIcon/> }
