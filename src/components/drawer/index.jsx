@@ -1,7 +1,8 @@
 import { useState } from "react"
-import { Drawer, IconButton, List, ListItemButton, ListItemText, ListItemIcon } from "@mui/material"
+import { Drawer, IconButton, List, ListItemButton, ListItemText, ListItemIcon, Button } from "@mui/material"
 import MenuIcon from '@mui/icons-material/Menu';
 import { useNavigate } from "react-router-dom";
+import { useApp } from "../../hooks/useApp";
 
 const pages = [
     {
@@ -17,12 +18,13 @@ const pages = [
         description: "Registered Medicines"
     },
     {
-        route: "/find-pharmacy",
+        route: "/",
         description: "Find Pharmacy"
     }
 ]
 
 function DrawerComp() {
+    const {logout} = useApp();
     const [openDrawer, setOpenDrawer] = useState(false);
     const navigate = useNavigate();
 
@@ -41,6 +43,9 @@ function DrawerComp() {
                             )
                         })
                     }
+                <ListItemIcon>
+                    <Button sx={{ margin: 2}} variant="outlined" color="error" onClick={logout}>Logout</Button>
+                </ListItemIcon>    
 
                 </List>
             </Drawer>
