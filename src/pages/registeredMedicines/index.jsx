@@ -51,7 +51,7 @@ function RegisteredMedicines() {
                                                 {medicine.medicineName}
                                                     <BasicModal>
                                                     <Typography variant="h6" color="text.primary">
-                                                        NAME: {medicine.lab}
+                                                        NAME: {medicine.medicineName}
                                                         </Typography>  
                                                         <Typography mt={2} variant="h6" color="text.primary">
                                                         LAB: {medicine.lab}
