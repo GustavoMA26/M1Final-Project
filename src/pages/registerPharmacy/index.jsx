@@ -46,7 +46,7 @@ function RegisterPharmacy () {
                             alignItems="center" 
                             justifyContent="center"
                             margin="auto"
-                            marginTop={5}
+                            marginTop={2}
                             padding={3}
                             sx={{ display: 'flex', flexWrap: 'wrap' }}>
                             <Typography
@@ -134,7 +134,7 @@ function RegisterPharmacy () {
                                 </Grid>
                             </Grid>
                         </Box>                            
-                        <Divider style={{width:'100%'}}>
+                        <Divider  style={{width:'100%'}}>
                             <Chip label="ADDRESS" />
                         </Divider>
                         <Box
@@ -157,6 +157,7 @@ function RegisterPharmacy () {
                                         type={"text"}
                                         variant="filled"
                                         name="zipcode"
+                                        required
                                         onBlur={checkZipcode}
                                         InputLabelProps={{
                                             shrink: true
