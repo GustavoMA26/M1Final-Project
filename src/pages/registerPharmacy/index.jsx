@@ -18,7 +18,8 @@ function RegisterPharmacy () {
         let usedLocalStorage = pharmaciesList ? JSON.parse(pharmaciesList) : [];
         usedLocalStorage.push(e)
         localStorage.setItem('newPharmacy', JSON.stringify(usedLocalStorage));
-        alert(`Pharmacy ${company.value} registered with success`)
+        alert(`Pharmacy ${company.value} registered with success`);
+        reset();
         }
         
 
@@ -296,6 +297,7 @@ function RegisterPharmacy () {
                             sx={{marginTop:3, marginLeft:3, borderRadius:3}}
                             variant="outlined"
                             type="button"
+                            color="error"
                             onClick={() => reset()} 
                             >Reset</Button>
                         </Box>    

@@ -32,7 +32,7 @@ function RegisterMedicine () {
         usedLocalStorage.push(e)
         localStorage.setItem('newMedicine', JSON.stringify(usedLocalStorage));
         alert(`Medicine ${medicineName.value} registered with success`);
-        window.location.reload(true);
+        reset();
     }
 
     return (
@@ -144,6 +144,7 @@ function RegisterMedicine () {
                                     sx={{marginTop:3, marginLeft:3, borderRadius:3}}
                                     variant="outlined"
                                     type="button"
+                                    color="error"
                                     onClick={() => reset()} 
                                     >Reset
                                 </Button>
